@@ -1,0 +1,218 @@
+/* ============================================================================
+   Sahaara AI — design tokens
+   Vercel / Geist design language (DESIGN.md).
+
+   Dark is the console default. [data-theme="light"] swaps to the reference
+   system's primary palette — stark #171717 ink on a #fafafa canvas.
+
+   Rules honoured here:
+     · one ink tone carries every heading, CTA and border
+     · colour is reserved for status, data and the hero mesh
+     · hairline borders, not shadows, do the dividing
+     · 6px app chrome / 8-10px panels / pill reserved for the primary CTA
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Surfaces ─────────────────────────────────────────────────────────── */
+  --bg:            #0a0a0a;          /* canvas-dark                       */
+  --surface:       #111111;          /* gray-200-dark                     */
+  --surface-2:     #171717;
+  --surface-3:     #1a1a1a;          /* gray-100-dark                     */
+  --surface-hi:    #242424;
+  --inset:         #000000;          /* wells: inputs, code, tabs         */
+  --inset-2:       #050505;
+  --glass:         rgba(17, 17, 17, 0.88);
+
+  /* ── Lines & edges ────────────────────────────────────────────────────── */
+  --line:          #1f1f1f;
+  --line-2:        #2b2b2b;
+  --line-strong:   #333333;          /* gray-300-dark                     */
+  --hairline:      1px solid var(--line);
+
+  /* ── Text ─────────────────────────────────────────────────────────────── */
+  --text:          #ededed;          /* ink-dark                          */
+  --text-2:        #b0b0b0;
+  --muted:         #8f8f8f;          /* 6.1:1 on #0a0a0a                  */
+  --faint:         #7d7d7d;          /* 4.8:1 on #0a0a0a                  */
+
+  /* ── Signal colours ───────────────────────────────────────────────────── */
+  --accent:        #3291ff;          /* link blue, lightened for #0a0a0a  */
+  --violet:        #b392ff;          /* violet, lightened for dark        */
+  --cyan:          #50e3c2;          /* graphics only                     */
+  --pink:          #ff0080;
+  --good:          #3ecf8e;
+  --warn:          #f5a623;
+  --danger:        #ff4d4d;
+
+  /* Text on the saturated solid buttons — chosen for ≥4.5:1 against each. */
+  --danger-fg:     #0a0a0a;
+  --good-fg:       #0a0a0a;
+
+  /* ── The mesh (hero only — never a full-page gradient) ────────────────── */
+  --mesh:          linear-gradient(115deg, #50e3c2 0%, #3291ff 34%, #b392ff 66%, #ff0080 100%);
+  --accent-grad:   linear-gradient(120deg, #3291ff, #b392ff);
+  --good-grad:     linear-gradient(120deg, #3ecf8e, #50e3c2);
+
+  /* ── Semantic washes (banner / alert backgrounds) ─────────────────────── */
+  --wash-danger:   rgba(255, 77, 77, 0.10);
+  --wash-warn:     rgba(245, 166, 35, 0.10);
+  --wash-good:     rgba(62, 207, 142, 0.10);
+  --wash-accent:   rgba(50, 145, 255, 0.12);
+  --wash-pink:     rgba(255, 0, 128, 0.10);
+  --wash-violet:   rgba(179, 146, 255, 0.12);
+
+  /* ── Tinted text (banner copy needs more than a wash) ─────────────────── */
+  --on-danger:     #ffb3b3;
+  --on-warn:       #ffd9a3;
+  --on-good:       #a9edcf;
+  --on-accent:     #b7d9ff;
+  --on-violet:     #d9cbff;
+
+  /* ── Typography ───────────────────────────────────────────────────────── */
+  --font:   "Geist", "Noto Sans Devanagari", -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono:   "Geist Mono", "Noto Sans Devanagari", ui-monospace, SFMono-Regular,
+            "SF Mono", Menlo, Consolas, monospace;
+
+  --fs-3xs: 0.6875rem;
+  --fs-2xs: 0.75rem;
+  --fs-xs:  0.8125rem;
+  --fs-sm:  0.875rem;
+  --fs-md:  0.9375rem;
+  --fs-lg:  1.0625rem;
+  --fs-xl:  1.375rem;
+  --fs-2xl: 1.875rem;
+  --fs-3xl: 2.75rem;
+
+  /* ── Radii (6px chrome · 8–10px panels · pill for the primary CTA) ───── */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 10px;
+  --r-xl: 12px;
+  --r-pill: 999px;
+
+  /* ── Shadows (hairlines carry the structure; these only seat the layer) ─ */
+  --sh-sm:  0 1px 2px rgba(0, 0, 0, 0.40);
+  --sh-md:  0 2px 8px -2px rgba(0, 0, 0, 0.45);
+  --sh-lg:  0 12px 32px -12px rgba(0, 0, 0, 0.60);
+  --sh-danger: 0 0 0 1px rgba(255, 77, 77, 0.30);
+  --sh-focus:  0 0 0 3px rgba(0, 112, 243, 0.35);
+
+  /* ── Rhythm ───────────────────────────────────────────────────────────── */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 44px;
+
+  --topbar-h: 56px;
+  --statusbar-h: 30px;
+  /* 256px keeps the longest rail label ("Case workspace", 110px with Geist) on
+     one line alongside its count badge; at 236px it clipped by 0.14px and
+     rendered an ellipsis. */
+  --rail-w: 256px;
+
+  /* ── Motion ───────────────────────────────────────────────────────────── */
+  --ease:       cubic-bezier(.22, .8, .24, 1);
+  --ease-out:   cubic-bezier(.16, 1, .3, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --t-fast: 140ms;
+  --t-med:  260ms;
+  --t-slow: 520ms;
+
+  --z-rail: 30;
+  --z-topbar: 40;
+  --z-palette: 90;
+  --z-toast: 100;
+}
+
+/* ============================================================================
+   Light — DESIGN.md's primary palette: black-on-near-white.
+   ========================================================================== */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg:            #fafafa;          /* canvas                            */
+  --surface:       #ffffff;          /* canvas-elevated                   */
+  --surface-2:     #fafafa;
+  --surface-3:     #f7f7f7;
+  --surface-hi:    #f2f2f2;          /* gray-100                          */
+  --inset:         #f7f7f7;
+  --inset-2:       #f2f2f2;
+  --glass:         rgba(255, 255, 255, 0.90);
+
+  --line:          #ebebeb;          /* hairline                          */
+  --line-2:        #e0e0e0;
+  --line-strong:   #d4d4d4;
+  --hairline:      1px solid var(--line);
+
+  --text:          #171717;          /* ink                               */
+  --text-2:        #4d4d4d;          /* body — 8.1:1                      */
+  --muted:         #5c5c5c;          /* 6.4:1                             */
+  --faint:         #737373;          /* 4.5:1 — DESIGN.md's #8f8f8f is
+                                        3.1:1 on #fafafa, below the 4.5:1
+                                        floor the same document mandates. */
+
+  --accent:        #0070f3;          /* link                              */
+  --violet:        #7928ca;          /* violet                            */
+  --cyan:          #0a8a54;
+  --pink:          #d5006d;
+  --good:          #0a8a54;          /* success                           */
+  --warn:          #ab570a;          /* warning-deep — text-safe          */
+  --danger:        #ee0000;          /* error                             */
+
+  --danger-fg:     #ffffff;
+  --good-fg:       #ffffff;
+
+  --mesh:          linear-gradient(115deg, #50e3c2 0%, #0070f3 38%, #7928ca 72%, #ff0080 100%);
+  --accent-grad:   linear-gradient(120deg, #0070f3, #7928ca);
+  --good-grad:     linear-gradient(120deg, #0a8a54, #0070f3);
+
+  --wash-danger:   rgba(238, 0, 0, 0.07);
+  --wash-warn:     rgba(245, 166, 35, 0.16);
+  --wash-good:     rgba(10, 138, 84, 0.09);
+  --wash-accent:   rgba(0, 112, 243, 0.08);
+  --wash-pink:     rgba(213, 0, 109, 0.08);
+  --wash-violet:   rgba(121, 40, 202, 0.08);
+
+  --on-danger:     #c50000;
+  --on-warn:       #ab570a;
+  --on-good:       #076a40;
+  --on-accent:     #0761d1;
+  --on-violet:     #6b1fb5;
+
+  --sh-sm:  0 1px 2px rgba(0, 0, 0, 0.06);
+  --sh-md:  0 2px 8px -2px rgba(0, 0, 0, 0.10);
+  --sh-lg:  0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  --sh-danger: 0 0 0 1px rgba(238, 0, 0, 0.28);
+  --sh-focus:  0 0 0 3px rgba(0, 112, 243, 0.28);
+}
+
+/* Chart series — pink / violet / amber, tuned per theme for line legibility. */
+:root {
+  --c-distress:    #ff4da6;
+  --c-safety:      #b392ff;
+  --c-vuln:        #f5a623;
+  --c-ok:          #3ecf8e;
+  --c-bad:         #ff4d4d;
+  --c-grid:        #1f1f1f;
+  --c-axis:        #767676;
+}
+[data-theme="light"] {
+  --c-distress:    #d5006d;
+  --c-safety:      #7928ca;
+  --c-vuln:        #ab570a;
+  --c-ok:          #0a8a54;
+  --c-bad:         #ee0000;
+  --c-grid:        #ebebeb;
+  --c-axis:        #6e6e6e;
+}
+
+/* Critical states tint the whole viewport very slightly — never enough to
+   hurt contrast, just enough that the room feels different. */
+body[data-alert="critical"] { --page-tint: rgba(255, 77, 77, 0.035); }
+body[data-alert="degraded"]  { --page-tint: rgba(245, 166, 35, 0.030); }
+body[data-alert="none"]      { --page-tint: transparent; }
+[data-theme="light"] body[data-alert="critical"] { --page-tint: rgba(238, 0, 0, 0.030); }
+[data-theme="light"] body[data-alert="degraded"]  { --page-tint: rgba(245, 166, 35, 0.050); }

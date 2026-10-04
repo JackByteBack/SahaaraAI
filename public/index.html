@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark light" />
+<meta name="description" content="Sahaara AI — Case Intelligence Console. Non-diagnostic trauma and safety assessment, human-supervised." />
+<title>Sahaara AI — Case Intelligence Console</title>
+
+<!-- Apply the stored theme before first paint so there is no flash. -->
+<script>
+  try {
+    var t = localStorage.getItem("sahaara.theme");
+    if (t === "light" || t === "dark") {
+      document.documentElement.dataset.theme = t;
+      document.documentElement.style.colorScheme = t;
+    }
+  } catch (e) { /* storage unavailable — keep the default */ }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..700&family=Geist:wght@400..800&family=Noto+Sans+Devanagari:wght@400..700&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ffffff'/%3E%3Cpath d='M8 21V11l8 6 8-6v10' stroke='%230a0a0a' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/layout.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/views.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="app" id="app">
+    <header class="topbar" id="topbar"></header>
+
+    <div class="shell">
+      <nav class="rail" id="rail" aria-label="Primary"></nav>
+      <main class="main" id="main" tabindex="-1"></main>
+    </div>
+
+    <footer class="statusbar" id="statusbar"></footer>
+  </div>
+
+  <div class="palette-scrim" id="palette-scrim" hidden></div>
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command palette" hidden></div>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <noscript>
+    <div style="padding:40px;font:16px system-ui;color:#171717;background:#fafafa">
+      Sahaara AI's console requires JavaScript. The API remains available at
+      <code>/api/health</code>, <code>/api/assess</code>, <code>/api/review</code>.
+    </div>
+  </noscript>
+
+  <script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>
